@@ -8,7 +8,6 @@ import com.shokry.games.states.Play;
 
 public class Player extends B2DSprite {
 	
-	//private int numCrystals;
 	private int totalCrystals;
 	TextureRegion[] sprites;
 	
@@ -17,21 +16,19 @@ public class Player extends B2DSprite {
 		super(body);
 		
 		
-		Texture tex = Game.res.getTexture("bunny");
+		Texture tex = Game.res.getTexture("cat");
 		sprites = new TextureRegion[4];
-		//System.out.println(Play.facingRight);
 		if(Play.facingRight){
-		for(int i = 0; i < sprites.length; i++) {
-			sprites[i] = new TextureRegion(tex, i * 32, 0, 32, 32);
-		}
+			for(int i = 0; i < sprites.length; i++) {
+				sprites[i] = new TextureRegion(tex, i * 32, 0, 32, 32);
+			}
 		} else {
 			for(int i = 0; i < sprites.length; i++) {
 				sprites[i] = new TextureRegion(tex, i * 32, 0, -32, 32);
+			}
 		}
-			sprites[0] = sprites[sprites.length-1];
-		}
-		/////Cuz first frame reversed is empty
-		//sprites[0] = sprites[sprites.length-1];
+		//Cuz first frame reversed is empty
+		sprites[0] = sprites[sprites.length-1];
 		
 		animatePlayer(true);
 		
@@ -41,18 +38,16 @@ public class Player extends B2DSprite {
 	}
 	
 	public void  climb(boolean climb){
-		//System.out.println("called climb");
 		if(climb){
-		Texture tex = Game.res.getTexture("p3_walk");
-		sprites = new TextureRegion[5];
-		for(int i = 0; i < sprites.length; i++) {
-			sprites[i] = new TextureRegion(tex, i * 18, 0, 18, 26);
-		}
+			Texture tex = Game.res.getTexture("p3_walk");
+			sprites = new TextureRegion[5];
+			for(int i = 0; i < sprites.length; i++) {
+				sprites[i] = new TextureRegion(tex, i * 18, 0, 18, 26);
+			}
 		
 		} else {
 			Play.player = new Player(this.body);
 		}
-		//animatePlayer(true);
 		
 		width = sprites[0].getRegionWidth();
 		height = sprites[0].getRegionHeight();
@@ -60,11 +55,7 @@ public class Player extends B2DSprite {
 	
 	public void animatePlayer(boolean animate){
 		if (animate) animation.setFrames(sprites, 1 / 12f);
-		//else animation.setFrames(sprites, 0f);
 	}
-	
-//	public void collectCrystal() { numCrystals++; }
-//	public int getNumCrystals() { return numCrystals; }
 	
 	public void setTotalCrystals(int i) { totalCrystals = i; }
 	public int getTotalCrystals() { return totalCrystals; }
