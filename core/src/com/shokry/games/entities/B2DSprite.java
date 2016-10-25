@@ -39,14 +39,12 @@ public class B2DSprite {
 	
 	public void render(SpriteBatch sb) {
 		sb.begin();
-//		if(body.getFixtureList().first().getUserData()!= null && body.getFixtureList().first().getUserData().equals("ladder")) 
-//			System.out.println("About to draw ladder " );
-		
-		sb.draw(animation.getFrame(), (body.getPosition().x * B2DVars.PPM - width / 2), (int) (body.getPosition().y * B2DVars.PPM - height / 2));
+		sb.draw(animation.getFrame(), (body.getPosition().x * B2DVars.PPM - width / 2),
+				(int) (body.getPosition().y * B2DVars.PPM - height / 2));
 		sb.end();
 	}
 	
-	public void renderImg(SpriteBatch sb){
+	public void renderImg(SpriteBatch sb) {
 		sb.begin();
 		sb.draw(texture, (body.getPosition().x * B2DVars.PPM - width / 2),
 				(int) (body.getPosition().y * B2DVars.PPM - height / 2));
@@ -57,5 +55,4 @@ public class B2DSprite {
 	public Vector2 getPosition() { return body.getPosition(); }
 	public float getWidth() { return width; }
 	public float getHeight() { return height; }
-	
 }
