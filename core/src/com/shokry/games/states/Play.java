@@ -1048,7 +1048,7 @@ public class Play extends GameState {
 
 		// draw bridges
 		for (int i = 0; i < bridges.size; i++) {
-			bridges.get(i).render(sb);
+			bridges.get(i).renderImg(sb);
 		}
 		// draw jumping springs
 		for (int i = 0; i < springs.size; i++) {
