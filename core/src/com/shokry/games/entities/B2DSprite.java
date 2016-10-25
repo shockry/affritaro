@@ -1,5 +1,6 @@
 package com.shokry.games.entities;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -17,6 +18,7 @@ public class B2DSprite {
 	protected float width;
 	protected float height;
 	protected TextureRegion texture;
+	protected Texture staticTexture;
 	
 	public B2DSprite(Body body) {
 		this.body = body;
@@ -46,7 +48,7 @@ public class B2DSprite {
 	
 	public void renderImg(SpriteBatch sb) {
 		sb.begin();
-		sb.draw(texture, (body.getPosition().x * B2DVars.PPM - width / 2),
+		sb.draw(staticTexture, (body.getPosition().x * B2DVars.PPM - width / 2),
 				(int) (body.getPosition().y * B2DVars.PPM - height / 2));
 		sb.end();
 	}
