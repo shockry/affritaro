@@ -40,7 +40,7 @@ import com.shokry.games.entities.Player;
 import com.shokry.games.entities.Spike;
 import com.shokry.games.entities.Spring;
 import com.shokry.games.entities.Tunnel;
-import com.shokry.games.entities.enemySnail;
+import com.shokry.games.entities.EnemySnail;
 import com.shokry.games.handlers.B2DVars;
 import com.shokry.games.handlers.GameContactListener;
 import com.shokry.games.handlers.GameInput;
@@ -84,7 +84,7 @@ public class Play extends GameState {
 	private Array<Gun> guns;
 	private Array<Tunnel> tunnels;
 	private Array<Bridge> bridges;
-	private Array<enemySnail> enemySnails;
+	private Array<EnemySnail> enemySnails;
 	private Array<Spring> springs;
 
 	// Make a platform velocity constant variable
@@ -592,7 +592,7 @@ public class Play extends GameState {
 	 */
 	private void createSnails() {
 		
-		enemySnails = new Array<enemySnail>();
+		enemySnails = new Array<EnemySnail>();
 
 		MapLayer ml = tileMap.getLayers().get("enemySnail");
 		if (ml == null){
@@ -638,7 +638,7 @@ public class Play extends GameState {
 
 			pshape.dispose();
 			
-			enemySnail s = new enemySnail(body);
+			EnemySnail s = new EnemySnail(body);
 			body.setUserData(s);
 			enemySnails.add(s);
 
@@ -884,7 +884,7 @@ public class Play extends GameState {
 				world.destroyBody(bodies.get(i));
 			}
 			else if(b.getFixtureList().first().getUserData().equals("snail")){
-				enemySnails.removeValue((enemySnail) b.getUserData(), true);
+				enemySnails.removeValue((EnemySnail) b.getUserData(), true);
 				world.destroyBody(bodies.get(i));
 				Game.res.getSound("enemyHit").play();
 			}
@@ -1011,14 +1011,14 @@ public class Play extends GameState {
 
 		// draw ladders
 		for (int i = 0; i < ladders.size; i++) {
-			ladders.get(i).render(sb);
+			ladders.get(i).renderImg(sb);
 		}
 
 		// draw player
 		player.render(sb);
 		if (bullets !=null)
 		for (int i = 0; i < bullets.size; i++) {
-			bullets.get(i).render(sb);
+			bullets.get(i).renderImg(sb);
 		}
 
 		// draw crystals
@@ -1028,22 +1028,22 @@ public class Play extends GameState {
 
 		// draw spikes
 		for (int i = 0; i < spikes.size; i++) {
-			spikes.get(i).render(sb);
+			spikes.get(i).renderImg(sb);
 		}
 
 		// draw moving platforms
 		for (int i = 0; i < movingPlaforms.size; i++) {
-			movingPlaforms.get(i).render(sb);
+			movingPlaforms.get(i).renderImg(sb);
 		}
 		
 		// draw guns
 		for (int i = 0; i < guns.size; i++) {
-			guns.get(i).render(sb);
+			guns.get(i).renderImg(sb);
 		}
 		
 		// draw tunnels
 		for (int i = 0; i < tunnels.size; i++) {
-			tunnels.get(i).render(sb);
+			tunnels.get(i).renderImg(sb);
 		}
 
 		// draw bridges
@@ -1052,7 +1052,7 @@ public class Play extends GameState {
 		}
 		// draw jumping springs
 		for (int i = 0; i < springs.size; i++) {
-			springs.get(i).render(sb);
+			springs.get(i).renderImg(sb);
 		}
 		
 		// draw Snails
