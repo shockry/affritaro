@@ -9,12 +9,12 @@ public class GameInput {
 	
 	public static boolean[] keys;
 	public static boolean[] pkeys;
-	private static final int NUM_KEYS = 6;
+	private static final int NUM_KEYS = 5;
 	public static final int BTNJMP = 0;
+	public static final int BTNFIRE = 1;
 	public static final int BTNRIGHT = 2;
 	public static final int BTNLEFT = 3;
 	public static final int BTNUP = 4;
-	public static final int BTNFIRE = 5;
 	
 	static {
 		keys = new boolean[NUM_KEYS];

@@ -50,7 +50,7 @@ import com.shokry.games.handlers.GameStateManager;
 
 public class Play extends GameState {
 
-	private boolean debug = true;
+	private boolean debug = false; //Set to true to see body boundaries
 	
 	private static final float WAIT_TIME = 3f;
 
@@ -104,8 +104,6 @@ public class Play extends GameState {
 		cl = new GameContactListener();
 		world.setContactListener(cl);
 		b2dRenderer = new Box2DDebugRenderer();
-		
-		
 
 		//Creating objects from the tile map
 		createPlayer();
@@ -708,7 +706,6 @@ public class Play extends GameState {
 	 * Apply upward force to player body.
 	 */
 	private void playerJump() {
-		System.out.println(cl.playerCanJump());
 		if (cl.playerCanJump()>0) {
 			player.getBody().setLinearVelocity(
 					player.getBody().getLinearVelocity().x, 0);
